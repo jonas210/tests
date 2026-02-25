@@ -7,7 +7,7 @@ def moda(*nums):
     n = [x for x in set(nums) if nums.count(x) == maximo]
     return n
 
-modas = choices([2, 4, 6, 10, 9], k= 8)
+modas = choices([2, 4, 6, 10, 9], k= 10)
 print(f'Sua lista de numeros: {modas} e, sua moda(s): {moda(*modas)}')
 
 
@@ -15,9 +15,9 @@ print(f'Sua lista de numeros: {modas} e, sua moda(s): {moda(*modas)}')
 def avg(*nums):
     return sum(nums) / len(nums)
 
-nums_avg = choices([2, 6, 7, 10], k= 9)
+nums_avg = choices([2, 6, 7, 10], k= 10)
 
-print(f'Sua lista de numeros: {nums_avg} e, sua média: {avg(*nums_avg):.2f}')
+print(f'Sua lista de numeros: {nums_avg} e, sua média: {avg(*nums_avg):.1f}')
 
 
 # mediana
@@ -32,11 +32,10 @@ def mediana(*nums):
     else:
         meio = n // 2
         mediana_lista = nums_ordenado[meio]
+        return mediana_lista
 
-    return mediana_lista
 
-
-mediana_nums = choices([2, 6, 8, 9, 10], k= 10)
+mediana_nums = choices([2, 4, 6, 5, 7, 9, 10], k= 10)
 
 mediana_nums.sort()
 

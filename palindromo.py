@@ -1,19 +1,23 @@
-def palindromo(nome):
-    nome_limpo = nome.replace(" ", "").lower()
+import re
 
-    if not nome_limpo.isalpha():
-        print("Digite algo válido.")
-        return
+def palindromo(texto):
+    nome_limpo = re.sub(r'[^a-zA-Z0-9]', '', texto)
 
-    if nome_limpo == nome_limpo[::-1]:
-        print(f'{nome_limpo} é palindromo!')
+    nome_limpo = nome_limpo.lower()
+
+    return nome_limpo == nome_limpo[::-1]
+
+
+
+while True:
+    entrada = input("O que você quer verificar?")
+
+    if entrada.lower() == 'q':
+        break
+
+    if palindromo(entrada):
+        print("É palindromo!")
+    
     else:
         print("Não é palindromo")
-
-
-
-nome_u = input("O que voce quer verificar? ")
-
-palindromo(nome_u)
-
 
