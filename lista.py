@@ -9,21 +9,29 @@ def inserir():
 
 def apagar():
     os.system('cls')
-    if not len(lista):
+    if not lista:
         print("Nada para apagar")
         return
     
     indice = input("Escolha o indice para excluir: ")
-    try:
-        int_indice = int(indice)
-        del lista[int_indice]
-    except:
-        print("Não foi possivel excluir esse indice")
+
+    if not indice.isdigit():
+        print("Digite apenas números.")
+        return
+    
+    int_indice = int(indice)
+
+    if int_indice < 0 or int_indice >= len(lista):
+        print("Índice inválido.")
+        return
+
+    del lista[int_indice]
+    print("Item apagado com sucesso!")
     
 def listar():
     os.system('cls')
 
-    if not len(lista):
+    if not lista:
         print("Nada para listar")
         return
     
@@ -48,6 +56,6 @@ while True:
 
     try:
         opcoes[entrada]()
-    except Exception as e:
-        print(f"Erro: {e}")
+    except KeyError:
+        print(f"Opção invalida, tente novamente")
         continue
