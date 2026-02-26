@@ -73,20 +73,19 @@ while True:
     print('Sair do programa (4)')
     escolha = input(f"Digite o uma das opções acima: \n")
 
-    if escolha == '1':
-        agenda.adicionar_contato()
-
-    elif escolha == '2':
-        agenda.excluir_contato()
-    
-    elif escolha == '3':
-        agenda.listar_contato()
-
-    elif escolha == '4':
-        print('Obrigado por usar meu programa!')
+    if escolha == '4':
+        print("Obrigado por usar meu programa! :)")
         break
 
-    else:
-        print("Opção inválida")
+    opcoes = {
+        '1': agenda.adicionar_contato,
+        '2': agenda.excluir_contato,
+        '3': agenda.listar_contato
+    }
+    try:
+        opcoes[escolha]()
+    except KeyError:
+        print("Opção invalida, tente de novo")
+        continue
 
 
