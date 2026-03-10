@@ -48,6 +48,13 @@ divisao = lambda a, b: a / b
 
 main()
 
+operacoes = {
+    "+": soma,
+    "-": subtracao,
+    "*": multiplicacao,
+    "/": divisao
+}
+
 while True: 
     a, b = entradaNumeros()
     if "q" in [a, b]: 
@@ -56,14 +63,6 @@ while True:
     if op == "q":
         break
     resultado = 0
-
-
-    operacoes = {
-        "+": soma,
-        "-": subtracao,
-        "*": multiplicacao,
-        "/": divisao
-    }
 
     try:
         resultado = operacoes[op](a, b)
